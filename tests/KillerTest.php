@@ -1,19 +1,25 @@
 <?php
 use PHPUnit\Framework\TestCase;
 use App\Killer;
+use App\ListManager;
+use App\Selector;
 
-final class KillerTest extends TestCase {
+final class KillerTest extends TestCase{
 
-    public function testToSeeIfDeadPersonIsDead () {
+    public function testIfKillerKilledOne(){
 
-        $killer = new Killer();
+        $listManager = new ListManager();
 
-        $victim = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Alive');
+        $selector = new Selector($listManager);
 
-        $deadPerson = $killer->killThePerson($victim);
+        $killer = new Killer($listManager, $selector);
 
-        $this->assertEquals('Dead', $deadPerson['status']);
+        $listManager->updateOneToDead(1);
+
+        $result = $killer->kill();
+
+        $this->assertEquals('Dead', $result['status']);
+
     }
 
 }
-
