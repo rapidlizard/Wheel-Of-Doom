@@ -4,53 +4,64 @@ use App\ListManager;
 
 final class ListManagerTest extends TestCase
 {
-
-    public function testListAllAliveReturnsAll () {
-
+    public function testListAllAliveReturnsAll ()
+    {
+        $fakeData = Array();
+        $p1 = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Alive');
+        $p2 = Array('id' => 2, 'name' => 'Bob', 'status' => 'Alive');
+        $p3 = Array('id' => 3, 'name' => 'Jim', 'status' => 'Alive');
+        array_push($fakeData, $p1, $p2, $p3);
         $listManager = new ListManager();
 
-        $list = $listManager->getListAllAlive();
+        $list = $listManager->getListAllAlive($fakeData);
 
         $this->assertEquals(3, count($list));
     }
 
-    public function testUpdateOneToDead () {
-
+    public function testListAllReturnsEmptyIfAllDead ()
+    {
+        $fakeData = Array();
+        $p1 = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Dead');
+        $p2 = Array('id' => 2, 'name' => 'Bob', 'status' => 'Dead');
+        $p3 = Array('id' => 3, 'name' => 'Jim', 'status' => 'Dead');
+        array_push($fakeData, $p1, $p2, $p3);
         $listManager = new ListManager();
 
-        $listManager->updateOneToDead(1);
-
-        $list = $listManager->getListAllAlive();
-
-        $this->assertEquals(2, count($list));
-    }
-
-    public function testListAllReturnsEmptyIfAllDead () {
-
-        $listManager = new ListManager();
-
-        $listManager->updateOneToDead(1);
-        $listManager->updateOneToDead(2);
-        $listManager->updateOneToDead(3);
-
-        $list = $listManager->getListAllAlive();
+        $list = $listManager->getListAllAlive($fakeData);
 
         $this->assertEquals(0, count($list));
     }
 
-    public function testUpdateAllToAlive () {
 
+    public function testUpdateOneToDead ()
+    {
+
+        $fakeVictim = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Alive');
         $listManager = new ListManager();
 
-        $listManager->updateOneToDead(1);
-        $listManager->updateOneToDead(2);
-        $listManager->updateOneToDead(3);
+        $deadPerson = $listManager->updateOneToDead($fakeVictim);
 
-        $listManager->updateAllToAlive();
+        $this->assertEquals('Dead', $deadPerson['status']);
 
-        $list = $listManager->getListAllAlive();
-
-        $this->assertEquals(3, count($list));
     }
+
+    public function testUpdateAllToAlive ()
+    {
+        $fakeData = Array();
+        $p1 = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Dead');
+        $p2 = Array('id' => 2, 'name' => 'Bob', 'status' => 'Dead');
+        $p3 = Array('id' => 3, 'name' => 'Jim', 'status' => 'Dead');
+        array_push($fakeData, $p1, $p2, $p3);
+        $listManager = new ListManager();
+
+        $reset = $listManager->updateAllToAlive($fakeData);
+
+        for ($index = 0; $index < count($fakeData); $index++) {
+            $this->assertEquals('Alive', $reset[$index]['status']);
+        }
+
+//        $this->assertTrue((in_array(0, in_array( 'status'))));
+    }
+
 
 }

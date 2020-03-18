@@ -4,11 +4,11 @@ use App\Reseter;
 
 final class ReseterTest extends TestCase
 {
-
     private $deadList = array();
 
-    public function setUp(): void {
-
+    public function setUp(): void
+    {
+        $this->deadList = array();
         $p1 = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Dead');
         $p2 = Array('id' => 2, 'name' => 'Bob', 'status' => 'Dead');
         $p3 = Array('id' => 3, 'name' => 'Jim', 'status' => 'Dead');

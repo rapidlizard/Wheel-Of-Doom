@@ -8,21 +8,19 @@ final class Killer {
         $this->selector = $selector;
     }
 
-    public function kill() {
+    public function kill($list) {
 
-        $list = $this->listManager->getListAllAlive();
+        $victimList = $this->listManager->getListAllAlive($list);
 
-        if (count($list) === 0) {
-            echo 'game over';
+        if (count($victimList) === 0) {
             return 'game over';
         }
 
-        $victim = $list[0];
+        $victim = $this->selector->selectPerson($victimList);
 
         $victim['status'] = 'Dead';
 
         return $victim;
-
     }
 
 }
