@@ -16,9 +16,6 @@ final class ListManager {
 
     public function updateOneToDead($victim) {
 
-        // $query = "UPDATE coder SET status = 'Dead' WHERE id=$id";
-        // mysql->query($query)
-
         $victim['status'] = 'Dead';
 
         return $victim;

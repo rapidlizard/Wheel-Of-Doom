@@ -10,7 +10,6 @@ final class Selector {
         $index = rand(0,$totalPeopleInList);
 
         return $list[$index];
-
     }
 
 }

@@ -60,7 +60,7 @@ final class ListManagerTest extends TestCase
             $this->assertEquals('Alive', $reset[$index]['status']);
         }
 
-//        $this->assertTrue((in_array(0, in_array( 'status'))));
+
     }
 
 

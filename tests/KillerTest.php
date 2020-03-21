@@ -40,4 +40,20 @@ final class KillerTest extends TestCase{
         $this->assertEquals('game over', $result);
     }
 
+    public function testIfKillerModifiesData ()
+    {
+        $fakeData = array();
+        $p1 = Array('id' => 1, 'name' => 'Jimmy', 'status' => 'Dead');
+        $p2 = Array('id' => 1, 'name' => 'Bob', 'status' => 'Alive');
+        array_push($fakeData, $p1, $p2);
+        $listManager = new ListManager();
+        $selector = new Selector();
+        $killer = new Killer($listManager, $selector);
+
+        $killer->kill($fakeData);
+
+        $this->assertEquals('Dead', $fakeData[1]['status']);
+    }
+
+
 }
