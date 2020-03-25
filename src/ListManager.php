@@ -13,6 +13,16 @@ final class ListManager {
         return $alivePeople;
     }
 
+    public function getListAllDead($list) {
+        $deadPeople = Array();
+        for ($index = 0; $index < count($list); $index++) {
+            if ($list[$index]['status'] === 'Dead') {
+                array_push($deadPeople, $list[$index]);
+            }
+        }
+        return $deadPeople;
+    }
+
 
     public function updateOneToDead($victim) {
 
