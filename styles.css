@@ -1,9 +1,9 @@
 *{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	text-decoration: none;
-	border: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
     outline: none;
     box-sizing: border-box;
 
@@ -17,27 +17,27 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-  margin:0;
-  padding:0;
-  border:0;
-  outline:0;
-  font-size:100%;
-  vertical-align:baseline;
-  background:transparent;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
 }
 
 body{
-width: 100%;
-height: 100%;
-background-color: black;}
+    width: 100%;
+    height: 100%;
+    background-color: black;}
 
 
 header{
     text-align: center;
-    padding-top: 32px;
+    padding-top: 16px;
 }
 
 main{
@@ -76,7 +76,7 @@ h4 {
 
 p {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 18px;    
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.3px;
     color: white;
@@ -91,6 +91,8 @@ strong{
 img{
     width: 80px;
     height: 80px;
+    border-radius: 50%;
+
 }
 
 .avatar {
@@ -106,7 +108,7 @@ img{
 
 .row_of_victim p{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white; 
+    color: white;
     margin: 4px;
     text-align: center;
     text-transform: uppercase;
@@ -119,21 +121,21 @@ img{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     padding: 16px 40px;
-    margin-top: 16px;
-    margin-bottom:32px;
+
+    margin-bottom:16px;
     background-color: white;
     border-radius: 50px;
 }
 
 .button a {
-    color:white; 
-    color: black; 
+    color:white;
+    color: black;
     letter-spacing: 1px;
     font-weight: 700;
 }
 
 .button:hover{
-    color:white; 
+    color:white;
     background-color: #FF4702;
     transform:scale(1.1);
     -webkit-transition-duration: 0.2s; /* Safari */
@@ -142,10 +144,12 @@ img{
 }
 
 .text-description{
-    margin-top: 8px;
+
     margin-bottom: 8px;
-    color:#FF4702
+    color:#FF4702;
+
 }
+
 
 input {
     padding: 24px;
@@ -160,9 +164,32 @@ input {
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 100%;
     text-align: center;
-    margin-top: 56px;
+    margin-top: 0px;
 }
 
 .counter {
-    margin-top: 56px;    
+    margin-top: 56px;
+}
+.main_container_flex{
+    max-width: 1400px;
+    margin: 0 auto 48px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+
+}
+.personAlive{
+
+    margin: 0px 15px 20px 15px;
+    text-align: center;
+}
+
+.personDead {
+    margin: 0px 15px 20px 15px;
+    text-align: center;
+}
+
+.Dead {
+    opacity: 0.4;
+    filter: grayscale(100%);
 }
